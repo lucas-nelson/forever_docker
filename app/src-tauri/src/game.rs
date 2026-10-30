@@ -86,7 +86,7 @@ pub fn write_launch_options(settings: &Settings, portal: &str, ticket: &str, gam
 #[cfg(windows)]
 pub fn spawn(settings: &Settings) -> Result<Child, String> {
     Command::new(settings.exe())
-        .args(["-launcherlogin", "-config", WTF_NAME])
+        .args(["-uid", "wowf", "-launcherlogin", "-config", WTF_NAME])
         .current_dir(&settings.game_dir)
         .spawn()
         .map_err(|e| tf("launch_failed", &[&"WowB.exe", &e]))
